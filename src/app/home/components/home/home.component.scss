@@ -1,0 +1,16 @@
+.home{
+  &__banner{
+    width: 100%;
+    height: 450px;
+    background: url('/assets/candyStore.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+    @media screen and (max-width:1366px) {
+      background-size: 100%;
+    }
+
+  }
+
+}
