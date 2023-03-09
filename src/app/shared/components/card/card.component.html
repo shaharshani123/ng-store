@@ -11,9 +11,9 @@
 
     </mat-card-content>
     <mat-card-actions class="card__price">
-      {{product.price}}
+      {{product.price | currency}}
       <button mat-button>LIKE</button>
-      <button mat-button>ADD To CART</button>
+      <button mat-button>ADD TO CART</button>
     </mat-card-actions>
   </mat-card>
 </div>

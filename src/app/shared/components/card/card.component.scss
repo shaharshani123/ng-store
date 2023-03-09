@@ -1,0 +1,13 @@
+.card{
+  //display: flex;
+  //align-items: center;
+  flex-direction: row;
+
+  &__img{
+    width: 30%;
+  }
+
+  &__dsc{
+    width: 30%;
+  }
+}
