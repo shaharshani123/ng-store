@@ -18,4 +18,9 @@ export class ProductService {
     //return of(PRODUCTS_MOCK)
     return this.http.get<IProduct[]>(Routes["allProducts"]);
   }
+
+  public getProductsById$(id:number):Observable<IProduct[]>{
+    //return of(PRODUCTS_MOCK)
+    return this.http.get<IProduct[]>(Routes["singleProduct"](id));
+  }
 }

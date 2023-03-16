@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductService } from 'src/app/product/services/product.service';
 import { IProduct } from 'src/app/shared/models';
@@ -18,6 +18,7 @@ export class AdminComponent implements AfterViewInit{
 
   @ViewChild(MatPaginator) paginator?: MatPaginator;
   @ViewChild(MatSort) sort?: MatSort;
+  private _liveAnnouncer: any;
 
   constructor(private productService: ProductService) {
 
@@ -28,30 +29,28 @@ export class AdminComponent implements AfterViewInit{
       this.initTable(data);
     });
 
+
   }
 
   ngOnDestroy(): void {
 
   }
   ngAfterViewInit() {
-    if(this.paginator){
-      this.dataSource.paginator = this.paginator;
-    }
-    if(this.sort){
-      this.dataSource.sort = this.sort;
-    }
+    this.initFilterSortandPaging();
   }
 
   removeFromData(product :IProduct){
     console.log("removeFromData func");
     const index = this.dataSource.data.findIndex((el) => {
+      console.log(el.id);
       return el.id = product.id;
     })
+    console.log(index);
     this.dataSource.data.splice(index,1);
     this.dataSource._updateChangeSubscription();
   }
 
-  applyFilter(event: Event) {
+  applyFilterId(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     //dataSource = new MatTableDataSource(ELEMENT_DATA);
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -60,14 +59,7 @@ export class AdminComponent implements AfterViewInit{
     }
   }
 
-  private initFilterandPaganig():void{
-
-  }
-
-  private initTable(data:IProduct[]):void{
-    console.log("allproducts:",data);
-    this.displayedColumns=['id', 'title', 'price', 'description','image','menu'];
-    this.dataSource =new MatTableDataSource(data);
+  private initFilterSortandPaging(){
     if(this.paginator){
       this.dataSource.paginator = this.paginator;
     }
@@ -76,6 +68,20 @@ export class AdminComponent implements AfterViewInit{
     }
   }
 
+  private initTable(data:IProduct[]):void{
+    console.log("allproducts:",data);
+    this.displayedColumns=['id', 'title', 'price', 'description','image','menu'];
+    this.dataSource =new MatTableDataSource(data);
+    this.initFilterSortandPaging();
+  }
+
+  sortChange(sortState: Sort){
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
+  }
 
 
 }

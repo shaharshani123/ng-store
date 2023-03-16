@@ -23,7 +23,8 @@ const modules :Array<any> = [
   MatTooltipModule,
   MatPaginatorModule,
   MatSortModule,
-  MatMenuModule
+  MatMenuModule,
+
 ]
 
 @NgModule({
