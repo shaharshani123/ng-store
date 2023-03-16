@@ -6,6 +6,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 const modules :Array<any> = [
@@ -14,7 +19,11 @@ const modules :Array<any> = [
   MatButtonModule,
   MatInputModule,
   MatCardModule,
-  MatTableModule
+  MatTableModule,
+  MatTooltipModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatMenuModule
 ]
 
 @NgModule({
