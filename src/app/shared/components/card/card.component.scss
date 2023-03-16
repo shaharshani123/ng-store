@@ -1,13 +1,15 @@
 .card{
-  //display: flex;
-  //align-items: center;
-  flex-direction: row;
 
-  &__img{
-    width: 30%;
+  img{
+    width: auto;
+    height: 50%;
   }
 
-  &__dsc{
-    width: 30%;
+  &__price {
+    color: #3936d9;
+    font-size: 22px;
+  }
+  button{
+    width: auto;
   }
 }

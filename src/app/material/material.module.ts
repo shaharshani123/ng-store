@@ -5,6 +5,7 @@ import {MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 
 
 const modules :Array<any> = [
@@ -12,7 +13,8 @@ const modules :Array<any> = [
   MatIconModule,
   MatButtonModule,
   MatInputModule,
-  MatCardModule
+  MatCardModule,
+  MatTableModule
 ]
 
 @NgModule({

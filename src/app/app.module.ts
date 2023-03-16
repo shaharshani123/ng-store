@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { MaterialModule } from './material/material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -24,7 +26,9 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HomeModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

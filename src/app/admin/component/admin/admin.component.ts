@@ -1,15 +1,15 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProductService } from 'src/app/product/services/product.service';
 import { IProduct } from 'src/app/shared/models';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy{
-
+export class AdminComponent {
   public products: IProduct[] = [];
+  @Input() dataSource?:IProduct;
 
   constructor(private productService: ProductService) {}
 
